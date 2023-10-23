@@ -1,0 +1,15 @@
+{% extends "./base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    {% for task in tasks.value %}
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+    {% endfor %}
+    {% if tasks.value == [] %}
+        <p>Aún no se han registrado nuevas tareas</p>
+    {% endif %}
+{% endblock %}
