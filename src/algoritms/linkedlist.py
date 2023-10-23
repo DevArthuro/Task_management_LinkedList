@@ -49,6 +49,11 @@ class LinkedList:
     # Get the values in the list structure 
     def get_values_nodes(self)-> List[dict]:
         list_nodes: list = []
+        if self.lenght == 0:
+            return {
+                "message": "No se encuentran elementos",
+                "value": list_nodes
+            }
         node_current: Node = self.head
         while node_current.next != None:
             list_nodes.append(node_current.get_task())
