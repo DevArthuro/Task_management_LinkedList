@@ -56,12 +56,16 @@ class LinkedList:
             }
         node_current: Node = self.head
         while node_current.next != None:
-            list_nodes.append(node_current.get_task())
+            task = node_current.get_task().copy()
+            print(task)
+            list_nodes.append(task)
             node_current = node_current.next
-        list_nodes.append(node_current.get_task())
+        task = node_current.get_task().copy()
+        list_nodes.append(task)
+        print(list_nodes)
         return {
             "message": "Encontradas",
-            "value": list_nodes
+            "value": list_nodes,
         }
 
     # Function to delete the especifict node for an index

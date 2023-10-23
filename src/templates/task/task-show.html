@@ -5,11 +5,21 @@
 {% endblock %}
 
 {% block content %}
+    <div class="container text-center">
+        <h1>Administrador de tareas con listas enlazadas</h1>
+    
     {% for task in tasks.value %}
-        <h3>{{ task.title }}</h3>
-        <p>{{ task.description }}</p>
-    {% endfor %}
-    {% if tasks.value == [] %}
-        <p>Aún no se han registrado nuevas tareas</p>
-    {% endif %}
+        <div class="card d-inline-block" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{ task.index }}. {{ task.title }}</h5>
+            <p class="card-text">{{ task.description }}</p>
+            <a href="#" class="card-link btn btn-warning">Editar</a>
+            <a href="#" class="card-link btn btn-danger">Eliminar</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% if tasks.value == [] %}
+            <p>Aún no se han registrado nuevas tareas</p>
+        {% endif %}
+    </div>  
 {% endblock %}
