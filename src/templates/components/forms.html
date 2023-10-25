@@ -1,0 +1,42 @@
+{% block form-register-task %}
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Registrar nueva tarea
+    </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registrar nueva tarea</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/manage-task/" method="POST">
+                {% csrf_token %}
+                <div class="form-floating mt-2">
+                    <label for="title" class="form-label">Titulo de la tarea</label>
+                    <input type="text" name="title" class="form-control" id="title"/>
+                </div>
+                <div class="form-floating mt-2">
+                    <label for="description">Descripción de la tarea</label>
+                    <textarea class="form-control" name="description" id="description"></textarea>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="status">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Terminada
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Guardar nueva tarea</button> <!--Falta la acción-->
+            
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}
